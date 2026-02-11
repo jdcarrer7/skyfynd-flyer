@@ -31,8 +31,9 @@
     }
 
     @page {
-      size: 5.5in 8.5in;
+      size: 16.5in 8.5in;
       margin: 0;
+      padding: 0;
     }
 
     body {
@@ -42,8 +43,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
       padding: 40px 20px;
+      gap: 24px;
+    }
+
+    .pamphlet {
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
     }
 
     /* Page Container - 5.5" x 8.5" */
@@ -53,7 +60,6 @@
       background: var(--bg-primary);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
       flex-shrink: 0;
     }
 
@@ -180,7 +186,7 @@
 
     .logo-text {
       font-family: 'Source Serif Pro', Georgia, serif;
-      font-size: 38px;
+      font-size: 44px;
       font-weight: 400;
       color: var(--text-primary);
       letter-spacing: -0.01em;
@@ -894,41 +900,132 @@
 
     /* Page Labels (for preview) */
     .page-label {
-      position: absolute;
-      top: -28px;
-      left: 0;
-      font-size: 11px;
-      font-weight: 500;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      display: none;
+    }
+
+    /* Print Button */
+    .print-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #FAFAFA;
+      background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35), 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.45), 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .print-btn:active {
+      transform: translateY(0);
+    }
+
+    .print-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: #FAFAFA;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     /* Print Styles */
     @media print {
-      body {
-        background: none;
-        padding: 0;
-        gap: 0;
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html, body {
+        background: none !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        width: 16.5in !important;
+        height: 8.5in !important;
+        overflow: hidden !important;
+      }
+
+      .pamphlet {
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: row !important;
       }
 
       .page {
-        box-shadow: none;
-        page-break-after: always;
+        box-shadow: none !important;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        page-break-inside: avoid !important;
       }
 
-      .page-label {
-        display: none;
+      .page-label,
+      .print-btn {
+        display: none !important;
       }
 
       .star {
         opacity: 0.15;
+      }
+
+      /* Force backgrounds to print */
+      .page-front,
+      .page-inside,
+      .page-back {
+        background: var(--bg-primary) !important;
+      }
+
+      .glow {
+        filter: blur(60px) !important;
+      }
+
+      /* Force gradient text to render */
+      .gradient-text,
+      .gradient-gold,
+      .front-contact-item,
+      .cta-title,
+      .contact-item span {
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+      }
+
+      /* Force card backgrounds */
+      .project-card,
+      .stats-box,
+      .cta-section {
+        background: var(--bg-secondary) !important;
+      }
+
+      .bubble {
+        background: rgba(17, 17, 19, 0.7) !important;
+      }
+
+      .qr-wrapper {
+        background: white !important;
       }
     }
   </style>
 </head>
 <body>
 
+  <div class="pamphlet">
   <!-- ========== PAGE 1: FRONT ========== -->
   <div class="page page-front">
     <span class="page-label">Front</span>
@@ -1170,6 +1267,7 @@
       </footer>
     </div>
   </div>
+  </div><!-- .pamphlet -->
 
   <script>
     // Generate stars for each page
@@ -1192,5 +1290,15 @@
     createStars('stars-inside', 120);
     createStars('stars-back', 130);
   </script>
+
+  <!-- Print to PDF Button -->
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24">
+      <path d="M6 9V2h12v7"/>
+      <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+      <rect x="6" y="14" width="12" height="8"/>
+    </svg>
+    Print / Save PDF
+  </button>
 </body>
 </html>
