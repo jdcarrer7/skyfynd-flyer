@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyFynd - Your Business Idea Deserves to Look Real</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* SkyFynd Theme Colors */
+      --bg-primary: #0A0A0B;
+      --bg-secondary: #111113;
+      --bg-tertiary: #18181B;
+      --text-primary: #FAFAFA;
+      --text-secondary: #A1A1AA;
+      --text-muted: #71717A;
+      --blue: #3B82F6;
+      --purple: #8B5CF6;
+      --teal: #10B981;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-light: rgba(255, 255, 255, 0.1);
+      --gradient-main: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+    }
+
+    @page {
+      size: 5.5in 8.5in;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #1a1a1a;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 20px;
+    }
+
+    /* Page Container - 5.5" x 8.5" */
+    .page {
+      width: 5.5in;
+      height: 8.5in;
+      background: var(--bg-primary);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
+
+    /* Stars Background - per page */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 1.5px;
+      height: 1.5px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+
+    /* Gradient Glows */
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Page Content */
+    .page-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5in 0.4in;
+    }
+
+    /* ========== PAGE 1: FRONT ========== */
+    .page-front {
+      background: var(--bg-primary);
+    }
+
+    .page-front .glow-1 {
+      top: -80px;
+      right: -60px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    }
+
+    .page-front .glow-2 {
+      bottom: 150px;
+      left: -100px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+    }
+
+    .page-front .glow-3 {
+      top: 30%;
+      left: 20%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+    }
+
+    /* Geometric angular overlay */
+    .front-geo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .front-geo::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -30%;
+      width: 80%;
+      height: 60%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+      transform: rotate(-15deg);
+    }
+
+    .front-geo::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      left: -20%;
+      width: 60%;
+      height: 40%;
+      background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+      transform: rotate(10deg);
+    }
+
+    .page-front .page-content {
+      justify-content: center;
+    }
+
+    .front-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 38px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .front-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.18;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-italic {
+      font-style: italic;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #3B82F6, #10B981);
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .front-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .front-qr-wrapper {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 28px;
+    }
+
+    .front-qr-wrapper img {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+    }
+
+    .front-cta-title {
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .front-cta-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      max-width: 380px;
+      margin-bottom: 20px;
+    }
+
+    .front-contact-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .front-contact-item {
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ========== PAGE 2: BACK ========== */
+    .page-back .glow-1 {
+      top: 50px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+    }
+
+    .page-back .glow-2 {
+      bottom: -50px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    }
+
+    /* Work Section - matching Projects page */
+    .work-section {
+      margin-bottom: 0;
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .work-header-left {
+      flex: 1;
+    }
+
+    .work-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    .work-title .gradient-gold {
+      background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .work-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      max-width: 220px;
+    }
+
+    .stats-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .stat-label {
+      font-size: 8px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Industries Row - horizontal below header */
+    .industries-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .industries-label {
+      font-size: 8px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 2px;
+    }
+
+    .industry-tag {
+      font-size: 8px;
+      font-weight: 500;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(59, 130, 246, 0.12);
+      color: var(--text-secondary);
+    }
+
+    .industry-tag.highlight {
+      background: rgba(245, 158, 11, 0.15);
+      color: #F59E0B;
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-content {
+      padding: 10px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--blue);
+    }
+
+    .project-tag.orange {
+      background: rgba(245, 158, 11, 0.15);
+      color: #F59E0B;
+    }
+
+    .project-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .project-desc {
+      font-size: 10px;
+      color: var(--text-secondary);
+      line-height: 1.35;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      font-size: 8px;
+      font-weight: 600;
+      padding: 2px 5px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      background: linear-gradient(135deg, rgba(17, 17, 19, 0.95) 0%, rgba(24, 24, 27, 0.9) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 18px;
+      padding: 16px 20px;
+      text-align: center;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow:
+        0 0 30px rgba(59, 130, 246, 0.1),
+        0 0 60px rgba(16, 185, 129, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(16, 185, 129, 0.5), transparent);
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .qr-wrapper {
+      position: relative;
+      background: white;
+      border-radius: 10px;
+      padding: 8px;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 20px rgba(59, 130, 246, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .qr-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(16, 185, 129, 0.4));
+      z-index: -1;
+    }
+
+    .qr-wrapper img {
+      display: block;
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+    }
+
+    .cta-content {
+      text-align: left;
+      flex: 1;
+    }
+
+    .cta-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+
+    .cta-subtitle {
+      font-size: 10px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .contact-item span {
+      background: linear-gradient(90deg, #3B82F6 0%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-item .icon-wrapper {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(59, 130, 246, 0.15);
+    }
+
+    .contact-item svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* Start Your Project Button */
+    .start-project-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 16px 0;
+    }
+
+    .start-project-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(140deg, rgba(17,17,19,0.9), rgba(17,17,19,0.7));
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .start-project-btn::before {
+      content: '';
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.12), transparent 55%),
+        radial-gradient(circle at 70% 85%, rgba(250, 204, 21, 0.08), transparent 60%);
+      filter: blur(22px);
+      pointer-events: none;
+    }
+
+    .start-project-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.08), transparent 55%, rgba(255,255,255,0.02)),
+        linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);
+      background-size: 100% 100%, 220% 220%;
+      pointer-events: none;
+    }
+
+    .start-project-btn-text {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: #FAFAFA;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .start-project-btn-glow {
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 8px;
+      background: radial-gradient(ellipse, rgba(96, 165, 250, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%);
+      filter: blur(6px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .back-footer {
+      text-align: center;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-text {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ========== PAGE 2: INSIDE LEFT ========== */
+    .page-inside {
+      background: var(--bg-primary);
+    }
+
+    .page-inside .glow-1 {
+      top: -100px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(139, 92, 246, 0.06) 50%, transparent 70%);
+    }
+
+    .page-inside .glow-2 {
+      bottom: 40px;
+      left: -100px;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.14) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%);
+    }
+
+    .page-inside .glow-3 {
+      top: 35%;
+      left: 15%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 50%, transparent 70%);
+    }
+
+    .page-inside .glow-4 {
+      bottom: -60px;
+      right: -40px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.06) 50%, transparent 70%);
+    }
+
+    .inside-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      padding: 0.3in 0.3in;
+    }
+
+    .inside-section-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--text-primary);
+      text-align: center;
+      line-height: 1.12;
+      margin-top: 0.15in;
+    }
+
+    /* Chat bubbles - alternating left/right */
+    .pain-bubbles {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bubble {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(17, 17, 19, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 18px;
+      padding: 10px 14px;
+      max-width: 92%;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(59, 130, 246, 0.08);
+    }
+
+    .bubble.right {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), 0 0 40px rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.25);
+    }
+
+    .bubble.left { align-self: flex-start; }
+    .bubble.right { align-self: flex-end; }
+
+    .bubble-text {
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .bubble-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+    }
+
+    .bubble.right .bubble-icon {
+      border-color: rgba(16, 185, 129, 0.15);
+    }
+
+    .bubble-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    .bubble-icon .emoji, .service-icon .emoji {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* Gradient divider */
+    .inside-divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #3B82F6 30%, #10B981 70%, transparent 100%);
+      border-radius: 1px;
+      opacity: 0.5;
+    }
+
+    /* Tagline */
+    .inside-tagline {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.35;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .inside-tagline .gradient-text {
+      background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Services */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .service-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+    }
+
+    .service-icon.teal {
+      border-color: rgba(16, 185, 129, 0.12);
+    }
+
+    .service-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    .service-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.35;
+      flex: 1;
+    }
+
+    .service-text strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .badge-new {
+      display: inline-block;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: white;
+      font-size: 7px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    /* Page Labels (for preview) */
+    .page-label {
+      position: absolute;
+      top: -28px;
+      left: 0;
+      font-size: 11px;
+      font-weight: 500;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+        gap: 0;
+      }
+
+      .page {
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .page-label {
+        display: none;
+      }
+
+      .star {
+        opacity: 0.15;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== PAGE 1: FRONT ========== -->
+  <div class="page page-front">
+    <span class="page-label">Front</span>
+    <div class="front-geo"></div>
+    <div class="stars" id="stars-front"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+
+    <div class="page-content">
+      <header class="front-header">
+        <img
+          class="logo-icon"
+          src="https://media.skyfynd.io/Skyfynd%20Landing%20Page/Skyfynd%20Logo/skyfynd_logo.webp"
+          alt="Skyfynd Logo"
+        />
+        <span class="logo-text">Skyfynd</span>
+      </header>
+
+      <div class="front-hero">
+        <h1 class="hero-title">
+          <span class="gradient-text">Your business idea<br>deserves to</span> <span class="hero-italic">look real.</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">
+          Whether you're starting from scratch or ready to level up &mdash; we build websites, apps, brands, and marketing that make your business impossible to ignore.
+        </p>
+      </div>
+
+      <div class="front-cta">
+        <div class="front-qr-wrapper">
+          <img
+            src="qr-code.png"
+            alt="Scan for consultation"
+          />
+        </div>
+        <h3 class="front-cta-title">Scan for a <span class="gradient-text">free</span> consultation</h3>
+        <p class="front-cta-subtitle">No commitment. Tell us where you are, and we'll show you what's possible.</p>
+        <div class="front-contact-list">
+          <span class="front-contact-item">contact@skyfynd.io</span>
+          <span class="front-contact-item">628-3000-SKY</span>
+          <span class="front-contact-item">skyfynd.io</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PAGE 2: INSIDE LEFT ========== -->
+  <div class="page page-inside">
+    <span class="page-label">Inside Left</span>
+    <div class="stars" id="stars-inside"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+    <div class="glow glow-4"></div>
+
+    <div class="inside-content">
+      <h2 class="inside-section-title">Does this sound like <span class="gradient-text">you</span>?</h2>
+
+      <div class="pain-bubbles">
+        <div class="bubble left">
+          <span class="bubble-text">You have a business idea but don't know where to start.</span>
+          <div class="bubble-icon"><span class="emoji">💡</span></div>
+        </div>
+
+        <div class="bubble right">
+          <span class="bubble-text">You started your business but it still doesn't look professional.</span>
+          <div class="bubble-icon"><span class="emoji">🎨</span></div>
+        </div>
+
+        <div class="bubble left">
+          <span class="bubble-text">You're not getting enough customers and don't know why.</span>
+          <div class="bubble-icon"><span class="emoji">👥</span></div>
+        </div>
+
+        <div class="bubble right">
+          <span class="bubble-text">You're missing calls, leads, and opportunities every week.</span>
+          <div class="bubble-icon"><span class="emoji">📉</span></div>
+        </div>
+      </div>
+
+      <div class="inside-divider"></div>
+
+      <div class="inside-tagline">
+        <span class="gradient-text">We handle all of it</span> &mdash; so you can focus on what you do best.
+      </div>
+
+      <div class="services-list">
+        <div class="service-row">
+          <div class="service-icon"><span class="emoji">🌐</span></div>
+          <span class="service-text">Let's build you a <strong>website</strong> that actually brings customers.</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon teal"><span class="emoji">📄</span></div>
+          <span class="service-text">Not ready for a full site? <strong>Rent a page.</strong> <span class="badge-new">New</span></span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon"><span class="emoji">📱</span></div>
+          <span class="service-text">Automate the busywork with your own <strong>app</strong>.</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon teal"><span class="emoji">🤖</span></div>
+          <span class="service-text">Missed calls are costing you. Our <strong>AI</strong> answers &mdash; and <strong>sounds human</strong>. <span class="badge-new">New</span></span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon"><span class="emoji">📣</span></div>
+          <span class="service-text"><strong>Ads, social, email</strong> &mdash; we bring the customers, you close the deal.</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon teal"><span class="emoji">✨</span></div>
+          <span class="service-text">And <strong>much more</strong>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PAGE 3: INSIDE RIGHT ========== -->
+  <div class="page page-back">
+    <span class="page-label">Back</span>
+    <div class="stars" id="stars-back"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div class="page-content">
+      <!-- Work Section -->
+      <section class="work-section">
+        <div class="work-header">
+          <div class="work-header-left">
+            <h2 class="work-title">What we can <span class="gradient-gold">build.</span></h2>
+            <p class="work-subtitle">Interactive prototypes built to demonstrate the caliber of digital experiences we craft for our clients.</p>
+          </div>
+          <div class="stats-box">
+            <div class="stat-item">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Custom</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">0</div>
+              <div class="stat-label">Templates</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="industries-row">
+          <span class="industries-label">Industries:</span>
+          <span class="industry-tag highlight">Real Estate</span>
+          <span class="industry-tag">Healthcare</span>
+          <span class="industry-tag">Finance</span>
+          <span class="industry-tag highlight">Fashion</span>
+          <span class="industry-tag">Education</span>
+          <span class="industry-tag">+ More</span>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <img class="project-image" src="https://media.skyfynd.io/Skyfynd%20Landing%20Page/Project%20Pages/Real%20Estate/re_landing_page_screenshot.webp" alt="Caldwell Real Estate">
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag orange">Real Estate</span>
+                <span class="project-tag">Web Design</span>
+              </div>
+              <h4 class="project-name">Caldwell Group Real Estate</h4>
+              <p class="project-desc">A fully functional prototype featuring interactive property listings, virtual tours, and intelligent search. Built to show what a luxury real estate platform can do.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img class="project-image" src="https://media.skyfynd.io/Skyfynd%20Landing%20Page/Assets/sasha_khan_fashion.webp" alt="Sasha Khan Fashion">
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag orange">Fashion</span>
+                <span class="project-tag">Branding</span>
+              </div>
+              <h4 class="project-name">Sasha Khan</h4>
+              <p class="project-desc">A high-fidelity prototype with AI-powered virtual try-on, dynamic lookbooks, and immersive product experiences. Showcasing what's possible in fashion e-commerce.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="start-project-btn-wrapper">
+          <a class="start-project-btn" href="https://plans.skyfynd.io">
+            <span class="start-project-btn-glow"></span>
+            <span class="start-project-btn-text">🚀 Create your project</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-row">
+          <div class="qr-wrapper">
+            <img
+              src="qr-code.png"
+              alt="Scan to contact"
+            />
+          </div>
+          <div class="cta-content">
+            <h3 class="cta-title">Free Consultation</h3>
+            <p class="cta-subtitle">No commitment. Tell us where you are, and we'll show you what's possible.</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 7l-10 6L2 7"/>
+                  </svg>
+                </div>
+                <span>contact@skyfynd.io</span>
+              </div>
+              <div class="contact-item">
+                <div class="icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
+                <span>628-3000-SKY</span>
+              </div>
+              <div class="contact-item">
+                <div class="icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                  </svg>
+                </div>
+                <span>skyfynd.io</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="back-footer">
+        <p class="footer-text">&copy; 2026 Skyfynd. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Generate stars for each page
+    function createStars(containerId, count) {
+      const container = document.getElementById(containerId);
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        const size = Math.random() * 1.5 + 0.5;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.opacity = Math.random() * 0.3 + 0.1;
+        container.appendChild(star);
+      }
+    }
+
+    createStars('stars-front', 140);
+    createStars('stars-inside', 120);
+    createStars('stars-back', 130);
+  </script>
+</body>
+</html>
