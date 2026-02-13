@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Services Agreement - Skyfynd LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: letter;
+      margin: 0.75in 1in;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #1a1a2e;
+      background: #f5f5f7;
+      padding: 0;
+    }
+
+    .document {
+      max-width: 8.5in;
+      margin: 40px auto;
+      background: #ffffff;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1);
+      padding: 0.8in 1in;
+    }
+
+    /* Header */
+    .doc-header {
+      text-align: center;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #1a1a2e;
+    }
+
+    .doc-header .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .doc-header .logo-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .doc-header .logo-text {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #1a1a2e;
+      letter-spacing: -0.01em;
+    }
+
+    .doc-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 17pt;
+      font-weight: 400;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    /* Intro */
+    .intro {
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    .intro-note {
+      margin-bottom: 14px;
+      text-align: justify;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Sections */
+    .article {
+      margin-bottom: 12px;
+    }
+
+    .article-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #ddd;
+      text-transform: uppercase;
+      break-after: avoid;
+      page-break-after: avoid;
+      letter-spacing: 0.03em;
+    }
+
+    .section-body {
+      margin-bottom: 6px;
+      text-align: justify;
+    }
+
+    .section-label {
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    /* Bullet lists */
+    .items {
+      margin: 4px 0 6px 20px;
+      list-style: none;
+    }
+
+    .items li {
+      margin-bottom: 3px;
+      text-align: justify;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .items li::before {
+      content: "\2022";
+      position: absolute;
+      left: 0;
+      color: #1a1a2e;
+      font-weight: 600;
+    }
+
+    /* Tier table */
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0;
+      font-size: 9.5pt;
+    }
+
+    .tier-table th {
+      background: #1a1a2e;
+      color: #ffffff;
+      padding: 6px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tier-table td {
+      padding: 5px 10px;
+      border-bottom: 1px solid #e5e5e5;
+      vertical-align: top;
+    }
+
+    .tier-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tier-table tbody tr:nth-child(even) {
+      background: #f9f9fb;
+    }
+
+    .tier-name {
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    /* Signature Section */
+    .signature-section {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 2px solid #1a1a2e;
+    }
+
+    .sig-title {
+      font-family: 'Source Serif Pro', Georgia, serif;
+      font-size: 12pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+    }
+
+    .signatures {
+      display: flex;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .sig-block {
+      flex: 1;
+    }
+
+    .sig-group-label {
+      font-size: 8.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .sig-field {
+      margin-bottom: 14px;
+    }
+
+    .sig-line {
+      border-top: 1px solid #1a1a2e;
+      padding-top: 4px;
+    }
+
+    .sig-field-label {
+      font-size: 8.5pt;
+      color: #888;
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .doc-footer img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+    }
+
+    .doc-footer span {
+      font-size: 8pt;
+      color: #aaa;
+      letter-spacing: 0.02em;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+
+      .document {
+        margin: 0;
+        box-shadow: none;
+        padding: 0;
+        max-width: none;
+      }
+
+      .print-btn {
+        display: none !important;
+      }
+    }
+
+    /* Print Button */
+    .print-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: #1a1a2e;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .print-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="document">
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="logo-row">
+        <img
+          class="logo-icon"
+          src="https://media.skyfynd.io/Skyfynd%20Landing%20Page/Skyfynd%20Logo/skyfynd_logo.webp"
+          alt="Skyfynd Logo"
+        >
+        <span class="logo-text">Skyfynd</span>
+      </div>
+      <h1 class="doc-title">Master Services Agreement</h1>
+    </header>
+
+    <!-- Intro -->
+    <p class="intro">
+      This Master Services Agreement (<strong>"Agreement"</strong>) is entered into as of <strong>[Date]</strong> ("Effective Date"), by and between <strong>Skyfynd LLC</strong> ("Service Provider") and the undersigned client ("Client").
+    </p>
+    <p class="intro-note">
+      By engaging Skyfynd for any services, Client agrees to be bound by this Agreement.
+    </p>
+
+    <!-- 1. SERVICES -->
+    <div class="article">
+      <h2 class="article-title">1. Services</h2>
+      <p class="section-body">
+        Skyfynd provides digital services including, but not limited to, website development, application development, branding, design, marketing, animation, content creation, and related professional services ("Services"). All Services are project-based unless expressly stated otherwise in writing.
+      </p>
+    </div>
+
+    <!-- 2. SOW -->
+    <div class="article">
+      <h2 class="article-title">2. Statement of Work (SOW)</h2>
+      <p class="section-body">
+        Each engagement shall be governed by a written Statement of Work (or formal Quote/Proposal) that specifies:
+      </p>
+      <ul class="items">
+        <li>Selected services</li>
+        <li>Tier (Essential, Pro, or Enterprise)</li>
+        <li>Deliverables</li>
+        <li>Timeline</li>
+        <li>Fees and payment terms</li>
+      </ul>
+      <p class="section-body">
+        No services are provided without an agreed SOW. In the event of a conflict between this Agreement and an SOW, the SOW shall control regarding scope and fees, but this Agreement shall control regarding legal terms (liability, IP, etc.).
+      </p>
+    </div>
+
+    <!-- 3. SERVICE TIERS -->
+    <div class="article">
+      <h2 class="article-title">3. Service Tiers</h2>
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Scope</th>
+            <th>Revisions</th>
+            <th>License</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tier-name">Essential</span></td>
+            <td>Limited; template-based or standard designs</td>
+            <td>Two (2) rounds</td>
+            <td>Personal or basic commercial</td>
+          </tr>
+          <tr>
+            <td><span class="tier-name">Pro</span></td>
+            <td>Expanded; custom designs</td>
+            <td>Four (4) rounds</td>
+            <td>Full commercial license</td>
+          </tr>
+          <tr>
+            <td><span class="tier-name">Enterprise</span></td>
+            <td>Comprehensive or unlimited</td>
+            <td>Unlimited reasonable</td>
+            <td>Exclusive ownership upon full payment</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. PRICING & PAYMENT -->
+    <div class="article">
+      <h2 class="article-title">4. Pricing &amp; Payment</h2>
+      <p class="section-body">
+        All prices are starting prices. Final pricing may vary based on scope. Unless otherwise stated in the SOW, payment terms are:
+      </p>
+      <ul class="items">
+        <li><strong>50% non-refundable deposit</strong> is required before work begins.</li>
+        <li><strong>50% balance</strong> is due upon completion or prior to the release of final files/launch.</li>
+      </ul>
+      <p class="section-body">
+        <span class="section-label">Late Payments:</span> Invoices not paid within 14 days of the due date are subject to a late fee of 1.5% per month or the maximum permitted by law. Skyfynd reserves the right to suspend all work and withhold deliverables until payment is brought current.
+      </p>
+    </div>
+
+    <!-- 5. ADD-ONS -->
+    <div class="article">
+      <h2 class="article-title">5. Add-Ons &amp; Recurring Services</h2>
+      <p class="section-body">
+        Add-ons and recurring services must be authorized in writing. Recurring services (e.g., maintenance, hosting) may be canceled with 30 days' written notice.
+      </p>
+    </div>
+
+    <!-- 6. CHANGE ORDERS -->
+    <div class="article">
+      <h2 class="article-title">6. Change Orders</h2>
+      <p class="section-body">
+        Any modification to scope, deliverables, or timeline requires a written Change Order approved by both parties. Skyfynd reserves the right to adjust fees and timelines for any requested changes.
+      </p>
+    </div>
+
+    <!-- 7. CLIENT RESPONSIBILITIES -->
+    <div class="article">
+      <h2 class="article-title">7. Client Responsibilities</h2>
+      <p class="section-body">Client agrees to:</p>
+      <ul class="items">
+        <li>Provide accurate and timely information, access, and assets.</li>
+        <li>Secure rights to all materials (images, copy, fonts) provided to Skyfynd.</li>
+        <li>Respond to approvals promptly. Delays caused by Client (e.g., failure to provide feedback within 3 business days) will extend timelines day-for-day and may result in a "restart fee" if the project goes dormant for more than 14 days.</li>
+      </ul>
+    </div>
+
+    <!-- 8. REVIEW & ACCEPTANCE -->
+    <div class="article">
+      <h2 class="article-title">8. Review &amp; Acceptance</h2>
+      <p class="section-body">
+        Upon delivery of the final Deliverables, Client shall have a period of five (5) business days ("Acceptance Period") to review the work.
+      </p>
+      <ul class="items">
+        <li>If Client requests corrections within this period, Skyfynd will make the necessary adjustments consistent with the SOW.</li>
+        <li>If Client does not provide specific written corrections within the Acceptance Period, the Deliverables shall be deemed accepted, and the final balance shall become immediately due and payable.</li>
+      </ul>
+    </div>
+
+    <!-- 9. IP -->
+    <div class="article">
+      <h2 class="article-title">9. Intellectual Property</h2>
+      <p class="section-body">
+        <span class="section-label">Deliverables:</span> Upon full payment, Skyfynd grants Client the rights associated with the selected Tier (Essential, Pro, or Enterprise).
+      </p>
+      <p class="section-body">
+        <span class="section-label">Background IP:</span> Skyfynd retains all right, title, and interest in and to its pre-existing materials, scripts, code libraries, proprietary tools, and design frameworks ("Background IP"). Skyfynd grants Client a perpetual, non-exclusive, royalty-free license to use Background IP solely as incorporated into the final Deliverables. Client may not extract, resell, or reverse-engineer Background IP for use in other projects.
+      </p>
+      <p class="section-body">
+        <span class="section-label">Third-Party Assets:</span> Stock photos, fonts, or plugins purchased on Client's behalf remain subject to their respective third-party licenses.
+      </p>
+    </div>
+
+    <!-- 10. PORTFOLIO -->
+    <div class="article">
+      <h2 class="article-title">10. Portfolio Rights</h2>
+      <p class="section-body">
+        Skyfynd retains the right to display the completed work, Client's name, and logo in its portfolio, website, and marketing materials for the purpose of demonstrating its capabilities, unless a specific Non-Disclosure Agreement (NDA) is signed.
+      </p>
+    </div>
+
+    <!-- 11. NO GUARANTEES -->
+    <div class="article">
+      <h2 class="article-title">11. No Guarantees &amp; Third-Party Disclaimer</h2>
+      <p class="section-body">
+        Skyfynd does not guarantee results including sales, traffic, engagement, search ranking, or revenue. <span class="section-label">Third-Party Services:</span> Skyfynd is not responsible for downtime, data loss, security breaches, or feature changes caused by third-party providers (e.g., AWS, GoDaddy, WordPress plugins, APIs). Client acknowledges that third-party services are subject to their own terms and availability.
+      </p>
+    </div>
+
+    <!-- 12. CONFIDENTIALITY -->
+    <div class="article">
+      <h2 class="article-title">12. Confidentiality</h2>
+      <p class="section-body">
+        Both parties shall keep confidential all proprietary information exchanged during the project, including trade secrets, business strategies, and customer data.
+      </p>
+    </div>
+
+    <!-- 13. TERMINATION -->
+    <div class="article">
+      <h2 class="article-title">13. Termination</h2>
+      <p class="section-body">
+        Either party may terminate this Agreement with written notice.
+      </p>
+      <p class="section-body">
+        <span class="section-label">Fees Owed:</span> In the event of termination by Client, Client shall pay Skyfynd for all work performed and expenses incurred up to the date of termination on a pro-rated basis. If the value of work performed exceeds the deposit, Client shall pay the difference within 10 days.
+      </p>
+      <p class="section-body">
+        <span class="section-label">Non-Refundable:</span> Fees already paid are non-refundable.
+      </p>
+    </div>
+
+    <!-- 14. LIMITATION OF LIABILITY -->
+    <div class="article">
+      <h2 class="article-title">14. Limitation of Liability</h2>
+      <p class="section-body">
+        To the maximum extent permitted by law, Skyfynd's liability is limited to the total fees paid by Client for the specific service giving rise to the claim. In no event shall Skyfynd be liable for indirect, incidental, special, or consequential damages (including lost profits or data).
+      </p>
+    </div>
+
+    <!-- 15. INDEMNIFICATION -->
+    <div class="article">
+      <h2 class="article-title">15. Indemnification</h2>
+      <p class="section-body">
+        Client agrees to indemnify and hold Skyfynd harmless from any claims, damages, or legal fees arising from Client's materials, breach of this Agreement, or misuse of the Deliverables.
+      </p>
+    </div>
+
+    <!-- 16. FORCE MAJEURE -->
+    <div class="article">
+      <h2 class="article-title">16. Force Majeure</h2>
+      <p class="section-body">
+        Neither party is liable for failure or delay in performance due to events beyond reasonable control (e.g., natural disasters, war, strikes, internet service provider failures).
+      </p>
+    </div>
+
+    <!-- 17. DISPUTE RESOLUTION -->
+    <div class="article">
+      <h2 class="article-title">17. Dispute Resolution</h2>
+      <p class="section-body">
+        Disputes shall be resolved through good faith negotiation. If unresolved, disputes shall be settled by binding arbitration in the county of Skyfynd's principal office.
+      </p>
+    </div>
+
+    <!-- 18. GOVERNING LAW -->
+    <div class="article">
+      <h2 class="article-title">18. Governing Law</h2>
+      <p class="section-body">
+        This Agreement is governed by the laws of the State of California.
+      </p>
+    </div>
+
+    <!-- 19. NON-SOLICITATION -->
+    <div class="article">
+      <h2 class="article-title">19. Non-Solicitation</h2>
+      <p class="section-body">
+        During the term of this Agreement and for twelve (12) months thereafter, Client agrees not to directly or indirectly solicit, recruit, or hire any employee, contractor, or agent of Skyfynd. Client agrees that the remedy for a breach of this provision shall be a payment to Skyfynd equal to 100% of the solicited individual's annual compensation.
+      </p>
+    </div>
+
+    <!-- 20. ENTIRE AGREEMENT -->
+    <div class="article">
+      <h2 class="article-title">20. Entire Agreement</h2>
+      <p class="section-body">
+        This Agreement constitutes the entire agreement between the parties and supersedes all prior agreements.
+      </p>
+    </div>
+
+    <!-- Signatures -->
+    <div class="signature-section">
+      <h2 class="sig-title">Acceptance</h2>
+
+      <div class="signatures">
+        <div class="sig-block">
+          <p class="sig-group-label">Client</p>
+
+          <div class="sig-field">
+            <div class="sig-line">
+              <p class="sig-field-label">Client Name</p>
+            </div>
+          </div>
+
+          <div class="sig-field">
+            <div class="sig-line">
+              <p class="sig-field-label">Signature</p>
+            </div>
+          </div>
+
+          <div class="sig-field">
+            <div class="sig-line">
+              <p class="sig-field-label">Date</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sig-block">
+          <p class="sig-group-label">Skyfynd LLC</p>
+
+          <div class="sig-field">
+            <div class="sig-line">
+              <p class="sig-field-label">Authorized Signature</p>
+            </div>
+          </div>
+
+          <div class="sig-field">
+            <div class="sig-line">
+              <p class="sig-field-label">Date</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <img
+        src="https://media.skyfynd.io/Skyfynd%20Landing%20Page/Skyfynd%20Logo/skyfynd_logo.webp"
+        alt="Skyfynd"
+      >
+      <span>Skyfynd LLC &mdash; Confidential</span>
+    </div>
+
+  </div>
+
+  <!-- Print Button -->
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24">
+      <path d="M6 9V2h12v7"/>
+      <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+      <rect x="6" y="14" width="12" height="8"/>
+    </svg>
+    Print / Save PDF
+  </button>
+
+</body>
+</html>
