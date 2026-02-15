@@ -193,13 +193,9 @@
     }
 
     .signatures {
-      display: flex;
-      justify-content: space-between;
-      gap: 48px;
-    }
-
-    .sig-block {
-      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 48px;
     }
 
     .sig-group-label {
@@ -208,7 +204,7 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: #888;
-      margin-bottom: 16px;
+      margin-bottom: 32px;
     }
 
     .sig-field {
@@ -223,6 +219,27 @@
     .sig-field-label {
       font-size: 8.5pt;
       color: #888;
+    }
+
+    .sig-image {
+      width: auto;
+      display: block;
+      position: absolute;
+      bottom: 6px;
+      left: 20px;
+    }
+
+    .sig-image.carlos {
+      height: 62px;
+    }
+
+    .sig-image.juan {
+      height: 77px;
+      bottom: -4px;
+    }
+
+    .sig-field.has-sig {
+      position: relative;
     }
 
     /* Footer */
@@ -558,41 +575,53 @@
       <h2 class="sig-title">Acceptance</h2>
 
       <div class="signatures">
-        <div class="sig-block">
-          <p class="sig-group-label">Client</p>
+        <!-- Row 1: Group labels -->
+        <p class="sig-group-label">Client</p>
+        <p class="sig-group-label">Skyfynd LLC</p>
 
-          <div class="sig-field">
-            <div class="sig-line">
-              <p class="sig-field-label">Client Name</p>
-            </div>
+        <!-- Row 2: Client Name | Carlos Signature -->
+        <div class="sig-field">
+          <div class="sig-line">
+            <p class="sig-field-label">Client Name</p>
           </div>
-
-          <div class="sig-field">
-            <div class="sig-line">
-              <p class="sig-field-label">Signature</p>
-            </div>
-          </div>
-
-          <div class="sig-field">
-            <div class="sig-line">
-              <p class="sig-field-label">Date</p>
-            </div>
+        </div>
+        <div class="sig-field has-sig">
+          <img src="carlos-signature.png" alt="Carlos Carrero Signature" class="sig-image carlos">
+          <div class="sig-line">
+            <p class="sig-field-label">Carlos Carrero</p>
           </div>
         </div>
 
-        <div class="sig-block">
-          <p class="sig-group-label">Skyfynd LLC</p>
-
-          <div class="sig-field">
-            <div class="sig-line">
-              <p class="sig-field-label">Authorized Signature</p>
-            </div>
+        <!-- Row 3: Client Signature | Carlos Date -->
+        <div class="sig-field">
+          <div class="sig-line">
+            <p class="sig-field-label">Signature</p>
           </div>
+        </div>
+        <div class="sig-field">
+          <div class="sig-line">
+            <p class="sig-field-label">Date</p>
+          </div>
+        </div>
 
-          <div class="sig-field">
-            <div class="sig-line">
-              <p class="sig-field-label">Date</p>
-            </div>
+        <!-- Row 4: Client Date | Juan Signature -->
+        <div class="sig-field">
+          <div class="sig-line">
+            <p class="sig-field-label">Date</p>
+          </div>
+        </div>
+        <div class="sig-field has-sig">
+          <img src="juan-signature.png" alt="Juan Carrero Signature" class="sig-image juan">
+          <div class="sig-line">
+            <p class="sig-field-label">Juan Carrero</p>
+          </div>
+        </div>
+
+        <!-- Row 5: (empty) | Juan Date -->
+        <div></div>
+        <div class="sig-field">
+          <div class="sig-line">
+            <p class="sig-field-label">Date</p>
           </div>
         </div>
       </div>
